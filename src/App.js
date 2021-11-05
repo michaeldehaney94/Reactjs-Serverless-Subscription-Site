@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Subscribe from './Subscribe';
+import React from 'react';
+import { useState } from 'react'
+import SignIn from './SignIn';
 
 function App() {
+  const [user, setUser] = useState(null)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Learn+ Subscription Site</h1>
+      <Subscribe />
+      {user ? <h1>Paywalled Content!!</h1> : <SignIn setUser={setUser} /> }
     </div>
   );
 }
